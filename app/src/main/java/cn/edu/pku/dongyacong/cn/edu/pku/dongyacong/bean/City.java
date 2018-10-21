@@ -22,5 +22,63 @@ public class City {
         this.allFristPY = allFristPY;
     }
 
-
+    public String getAllFristPY() {
+        return allFristPY;
     }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public String getFirstPY() {
+        return firstPY;
+    }
+
+    public String getAllPY() {
+        return allPY;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setFirstPY(String firstPY) {
+        this.firstPY = firstPY;
+    }
+
+    public void setAllPY(String allPY) {
+        this.allPY = allPY;
+    }
+
+    public void setAllFristPY(String allFristPY) {
+        this.allFristPY = allFristPY;
+    }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", number='" + number + '\'' +
+                ", firstPY='" + firstPY + '\'' +
+                ", allPY='" + allPY + '\'' +
+                ", allFristPY='" + allFristPY + '\'' +
+                '}';
+    }
+}
