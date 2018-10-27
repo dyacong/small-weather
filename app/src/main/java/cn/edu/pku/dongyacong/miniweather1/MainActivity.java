@@ -10,7 +10,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,7 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import cn.edu.pku.dongyacong.app.MyApplication;
 import cn.edu.pku.dongyacong.cn.edu.pku.dongyacong.bean.TodayWeather;
 import cn.edu.pku.dongyacong.util.NetUtil;
 /**
@@ -70,6 +74,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         initView();
     }
+//    private void initViews(){
+//        mBackBtn=(ImageView)findViewById(R.id.title_list);
+//        mBackBtn.setOnClickListener(this);
+//        mClearEditText=(ClearEditText) findViewById(R.id.search_city);
+//        mList=(ListView)findViewById(R.id.title_list);
+//        MyApplication myApplication=(MyApplication)getApplication();
+//        cityList=myApplication.getCityList();
+//        for(City city:cityList){
+//            filterDateList.add(city);
+//        }
+//        myadapter=new Myadapter(SelectCity.this,cityList);
+//        mList.setAdapter(myadapter);
+//        mList.setOnItemClicklistener(new AdapterView.OnItemClickListener()
+//        @Override
+//        public void onItemClick(AdapterView<?> adapterView,View view,int position,long l){
+//            City city=filterDatelist.get(position);
+//            Intent i=new Intent();
+//            i.putExtra("cityCode",city.getNumber())；
+//            setResult(RESULT_OK,i);
+//            finish();
+//        }
+//    })
+//}
+
+
 
     void initView(){
         city_name_Tv = (TextView) findViewById(R.id.title_city_name);
