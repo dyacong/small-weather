@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="45.0dip"
         android:background="#ffcd2626" >
+
         <ImageView
             android:id="@+id/title_back"
             android:layout_width="45.0dip"
@@ -36,24 +37,25 @@
             android:textSize="20.0dip" />
     </RelativeLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <EditText
             android:id="@+id/aba"
-            android:layout_width="260dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/title_name"
             android:hint="输入搜索城市"
+            android:background="@drawable/contact_search_box_edittext_keyword_background"
             />
-        <Button
-            android:id="@+id/button10"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+        <!--<Button-->
+            <!--android:id="@+id/button10"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="wrap_content"-->
 
-            android:text="搜索"
-            android:layout_toRightOf="@id/title_name"
-            />
+            <!--android:text="搜索"-->
+            <!--android:layout_toRightOf="@id/title_name"-->
+            <!--/>-->
     </LinearLayout>
     <ListView
         android:id="@+id/list_view"
@@ -61,5 +63,6 @@
         android:layout_height="match_parent"
         >
     </ListView>
+</LinearLayout>
 
-</RelativeLayout>
+

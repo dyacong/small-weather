@@ -74,29 +74,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         initView();
     }
-//    private void initViews(){
-//        mBackBtn=(ImageView)findViewById(R.id.title_list);
-//        mBackBtn.setOnClickListener(this);
-//        mClearEditText=(ClearEditText) findViewById(R.id.search_city);
-//        mList=(ListView)findViewById(R.id.title_list);
-//        MyApplication myApplication=(MyApplication)getApplication();
-//        cityList=myApplication.getCityList();
-//        for(City city:cityList){
-//            filterDateList.add(city);
-//        }
-//        myadapter=new Myadapter(SelectCity.this,cityList);
-//        mList.setAdapter(myadapter);
-//        mList.setOnItemClicklistener(new AdapterView.OnItemClickListener()
-//        @Override
-//        public void onItemClick(AdapterView<?> adapterView,View view,int position,long l){
-//            City city=filterDatelist.get(position);
-//            Intent i=new Intent();
-//            i.putExtra("cityCode",city.getNumber())；
-//            setResult(RESULT_OK,i);
-//            finish();
-//        }
-//    })
-//}
+
 
 
 

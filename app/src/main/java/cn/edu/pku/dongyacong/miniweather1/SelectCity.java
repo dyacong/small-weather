@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -29,7 +32,6 @@ public class SelectCity extends Activity implements View.OnClickListener {
     private ListView mlistView;
     private MyApplication myApplication;
     private List<City> cityList;
-    private List<String> res_id;
     private List<String> res_name;
     private EditText editText;
     private Button button;
@@ -43,12 +45,11 @@ public class SelectCity extends Activity implements View.OnClickListener {
         textview = (TextView) findViewById(R.id.title_name);
         Intent intent = getIntent();
         textview.setText(intent.getStringExtra("cityCode"));
-        button = (Button) findViewById(R.id.button10);
+        //button = (Button) findViewById(R.id.button10);
         mBackBtn = (ImageView) findViewById(R.id.title_back);
         editText = (EditText) findViewById(R.id.aba);
-        button.setOnClickListener(this);
+//        button.setOnClickListener(this);
         mBackBtn.setOnClickListener(this);
-        res_id = new ArrayList<String>();
         res_name = new ArrayList<String>();
         myApplication = (MyApplication) getApplication();
         cityList = myApplication.getCityList();
@@ -72,6 +73,32 @@ public class SelectCity extends Activity implements View.OnClickListener {
                 finish();
             }
         });
+        editText.addTextChangedListener(new TextWatcher() {
+            List<City> list = new ArrayList<>();
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                clear();
+                for (City city : cityList) {
+                    if (city.getCity().contains(editText.getText().toString())) {
+                        list.add(city);
+                        res_name.add(city.getCity());
+                    }
+                }
+                mlistView.setAdapter(new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, res_name));
+                Log.d("appww", "onTextChanged: ");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                cityList = list;
+                Log.d("apps", "onTextChanged: ");
+            }
+        });
     }
     @Override
     public void onClick(View v) {
@@ -83,28 +110,28 @@ public class SelectCity extends Activity implements View.OnClickListener {
                 setResult(RESULT_OK, i);
                 finish();
                 break;
-            case R.id.button10:
-                if (editText.getText().toString().equals("")) {
-                    clear();
-                    for (City city : cityList) {
-                        res_name.add(city.getCity());
-                    }
-                    mlistView.setAdapter(new ArrayAdapter<String>(this,
-                            android.R.layout.simple_list_item_1, res_name));
-                } else {
-                    clear();
-                    for (City city : cityList) {
-                        if (city.getCity().contains(editText.getText().toString())) {
-                            list.add(city);
-                            res_name.add(city.getCity());
-                        }
-                    }
-                    mlistView.setAdapter(new ArrayAdapter<String>(this,
-                            android.R.layout.simple_list_item_1, res_name));
-                    cityList = list;
-
-                }
-                break;
+//            case R.id.button10:
+//                if (editText.getText().toString().equals("")) {
+//                    clear();
+//                    for (City city : cityList) {
+//                        res_name.add(city.getCity());
+//                    }
+//                    mlistView.setAdapter(new ArrayAdapter<String>(this,
+//                            android.R.layout.simple_list_item_1, res_name));
+//                } else {
+//                    clear();
+//                    for (City city : cityList) {
+//                        if (city.getCity().contains(editText.getText().toString())) {
+//                            list.add(city);
+//                            res_name.add(city.getCity());
+//                        }
+//                    }
+//                    mlistView.setAdapter(new ArrayAdapter<String>(this,
+//                            android.R.layout.simple_list_item_1, res_name));
+//                    cityList = list;
+//
+//                }
+//                break;
             default:
                 break;
         }
