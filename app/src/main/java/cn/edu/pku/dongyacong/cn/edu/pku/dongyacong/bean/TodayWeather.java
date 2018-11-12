@@ -18,6 +18,24 @@ public class TodayWeather {
     private String high;
     private String low;
     private String type;
+//明天
+    private String date1;
+    private String high1;
+    private String low1;
+    private String type1;
+    private String fengli1;
+//后天
+    private String date2;
+    private String high2;
+    private String low2;
+    private String type2;
+    private String fengli2;
+    //大后天
+    private String date3;
+    private String high3;
+    private String low3;
+    private String type3;
+    private String fengli3;
 
     public String getUpdatetime() {
         return updatetime;
